@@ -1,6 +1,6 @@
 <h1>☕ Support My Work</h1>
 
-[![BioAmp EXG Pill intro video ](https://img.shields.io/badge/Channel-YouTube-red)](https://www.youtube.com/@glitchtronics)
+[![Youtube ](https://img.shields.io/badge/@GlitchTronics-YouTube-red)](https://www.youtube.com/@glitchtronics)    [![Instagram ](https://img.shields.io/badge/@GlitchTronics-Instragram-8a3ab9)](https://www.instagram.com/glitchtronics/)    
 
 <p>
     Hi there! 👋 I'm a maker from India 🇮🇳, passionate about creating and sharing innovative projects.  
