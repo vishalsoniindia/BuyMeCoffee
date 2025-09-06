@@ -17,6 +17,8 @@
 
 ---
 
+[![Copy UPI ID](https://img.shields.io/badge/Copy%20UPI%20ID-25D366?style=for-the-badge&logo=google-pay&logoColor=white)](upi://pay?pa=your-upi-id@upi&pn=YourName&cu=INR)
+
 <img height="300" alt="upi" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" />
 
 ---
