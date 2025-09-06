@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Poppins', system-ui, sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #121212);
       color: #f0f0f0;
       margin: 0;
@@ -16,26 +16,32 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      overflow-x: hidden;
     }
+
     .card {
       background: #222;
-      padding: 30px;
-      border-radius: 16px;
+      padding: 35px 30px;
+      border-radius: 18px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       max-width: 650px;
-      width: 100%;
+      width: 95%;
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
+      animation: fadeUp 0.8s ease-out;
     }
+
     h1 {
       margin-bottom: 10px;
-      font-size: 2rem;
+      font-size: 2.2rem;
+      font-weight: 600;
     }
+
     p {
-      font-size: 1.1em;
+      font-size: 1.05em;
       margin: 15px 0 25px;
-      color: #ccc;
+      color: #bbb;
     }
+
     .social {
       display: flex;
       justify-content: center;
@@ -44,27 +50,31 @@
       flex-wrap: wrap;
     }
     .social a img {
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
     .social a:hover img {
-      transform: scale(1.05);
+      transform: scale(1.1);
+      filter: brightness(1.2);
     }
+
     .divider {
       border-top: 1px solid #444;
       margin: 30px 0;
     }
+
     .btn {
       margin: 15px auto;
     }
     .btn img {
       border: none;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
     .btn img:hover {
-      transform: scale(1.05);
+      transform: translateY(-3px) scale(1.05);
+      filter: brightness(1.1);
     }
-    /* UPI Section */
+
     .upi-header {
       display: flex;
       justify-content: center;
@@ -75,6 +85,7 @@
     }
     .upi-header img {
       height: 60px;
+      animation: float 3s ease-in-out infinite;
     }
     .upi-box {
       display: flex;
@@ -82,9 +93,9 @@
       background: #2a2a2a;
       padding: 10px 15px;
       border-radius: 8px;
-      font-size: 1.1em;
+      font-size: 1.05em;
       gap: 10px;
-      box-shadow: inset 0 0 5px rgba(255,255,255,0.1);
+      box-shadow: inset 0 0 5px rgba(255,255,255,0.05);
     }
     .copy-btn {
       background: #ff5722;
@@ -100,18 +111,41 @@
       background: #e64a19;
       transform: translateY(-2px);
     }
+
     .upi-section img.qr {
       margin-top: 15px;
       height: 240px;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      animation: pulse 2.5s infinite;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
+
+    /* PhonePe Button */
+    .phonepe-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #5f259f;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .phonepe-btn:hover {
+      background: #7b3fc2;
+      transform: translateY(-2px);
+    }
+
     footer {
       margin-top: 25px;
       font-size: 1.1em;
       color: #ffcccb;
     }
-    /* Toast notification */
+
     #toast {
       visibility: hidden;
       min-width: 200px;
@@ -133,10 +167,24 @@
       visibility: visible;
       opacity: 1;
       bottom: 50px;
+      animation: slideUp 0.5s ease;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+      50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.7); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; bottom: 20px; }
+      to { opacity: 1; bottom: 50px; }
     }
   </style>
 </head>
@@ -144,13 +192,12 @@
   <div class="card">
     <h1>☕ Support My Work</h1>
 
-    <!-- Social links -->
     <div class="social">
       <a href="https://vishalsoniindia.github.io/redirect-links/youtube-link.html" target="_blank">
-        <img src="https://img.shields.io/badge/@ElectroDonut-YouTube-red" alt="YouTube">
+        <img src="https://img.shields.io/badge/@ElectroDonut-YouTube-red" alt="YouTube" loading="lazy">
       </a>
       <a href="https://vishalsoniindia.github.io/redirect-links/instagram-link.html" target="_blank">
-        <img src="https://img.shields.io/badge/@ElectroDonut-Instragram-8a3ab9" alt="Instagram">
+        <img src="https://img.shields.io/badge/@ElectroDonut-Instragram-8a3ab9" alt="Instagram" loading="lazy">
       </a>
     </div>
 
@@ -161,34 +208,39 @@
 
     <div class="divider"></div>
 
-    <!-- Buy Me a Coffee -->
     <div class="btn">
       <a href="https://ko-fi.com/N4N21536PR" target="_blank">
-        <img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="45" alt="Buy Me a Coffee">
+        <img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="45" alt="Buy Me a Coffee" loading="lazy">
       </a>
     </div>
 
     <div class="divider"></div>
 
-    <!-- PayPal -->
     <div class="btn">
       <a href="https://www.paypal.com/paypalme/vishalsoniindia" target="_blank">
-        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-large.png?v=6" height="36" alt="PayPal">
+        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-large.png?v=6" height="36" alt="PayPal" loading="lazy">
       </a>
     </div>
 
     <div class="divider"></div>
 
-    <!-- UPI -->
     <div class="upi-section">
       <div class="upi-header">
-        <img src="https://github.com/user-attachments/assets/3d025bee-2d79-4ccd-a36c-ee90618eac69" alt="UPI Logo">
+        <img src="https://github.com/user-attachments/assets/3d025bee-2d79-4ccd-a36c-ee90618eac69" alt="UPI Logo" loading="lazy">
         <div class="upi-box">
           <span id="upi-id">vishalsoniindia@ybl</span>
           <button class="copy-btn" onclick="copyUPI()">Copy</button>
         </div>
       </div>
-      <img class="qr" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" alt="UPI QR Code">
+      <!-- QR Code -->
+      <img class="qr" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" alt="UPI QR Code" loading="lazy">
+
+      <!-- PhonePe Button (now clearly below QR code) -->
+      <div>
+        <a class="phonepe-btn" href="upi://pay?pa=vishalsoniindia@ybl&pn=Vishal%20Soni" target="_blank">
+          Pay with PhonePe 📲
+        </a>
+      </div>
     </div>
 
     <div class="divider"></div>
@@ -198,7 +250,6 @@
     </footer>
   </div>
 
-  <!-- Toast -->
   <div id="toast">UPI ID copied!</div>
 
   <script>
@@ -207,7 +258,7 @@
       navigator.clipboard.writeText(upiId).then(() => {
         let toast = document.getElementById("toast");
         toast.className = "show";
-        setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+        setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
       });
     }
   </script>
