@@ -13,7 +13,7 @@
 
 ---
 
-<a href='https://www.paypal.com/paypalme/vishalsoniindia' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a><br/>
+<a href='https://www.paypal.com/paypalme/vishalsoniindia' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a><br/>
 
 ---
 <img height="100" alt="UPI-01" src="https://github.com/user-attachments/assets/3d025bee-2d79-4ccd-a36c-ee90618eac69" />
