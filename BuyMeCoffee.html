@@ -4,8 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>☕ Support My Work</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Cache-busted external resources -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap&v=1.0" rel="stylesheet">
+  
   <style>
+    /* Your existing CSS remains unchanged */
     body {
       font-family: 'Poppins', system-ui, sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #121212);
@@ -193,11 +197,11 @@
     <h1>☕ Support My Work</h1>
 
     <div class="social">
-      <a href="https://vishalsoniindia.github.io/redirect-links/youtube-link.html" target="_blank">
-        <img src="https://img.shields.io/badge/@ElectroDonut-YouTube-red" alt="YouTube" loading="lazy">
+      <a href="https://vishalsoniindia.github.io/redirect-links/youtube-link.html?cb=1.0" target="_blank">
+        <img src="https://img.shields.io/badge/@ElectroDonut-YouTube-red?cb=1.0" alt="YouTube" loading="lazy">
       </a>
-      <a href="https://vishalsoniindia.github.io/redirect-links/instagram-link.html" target="_blank">
-        <img src="https://img.shields.io/badge/@ElectroDonut-Instragram-8a3ab9" alt="Instagram" loading="lazy">
+      <a href="https://vishalsoniindia.github.io/redirect-links/instagram-link.html?cb=1.0" target="_blank">
+        <img src="https://img.shields.io/badge/@ElectroDonut-Instragram-8a3ab9?cb=1.0" alt="Instagram" loading="lazy">
       </a>
     </div>
 
@@ -209,16 +213,16 @@
     <div class="divider"></div>
 
     <div class="btn">
-      <a href="https://ko-fi.com/N4N21536PR" target="_blank">
-        <img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="45" alt="Buy Me a Coffee" loading="lazy">
+      <a href="https://ko-fi.com/N4N21536PR?cb=1.0" target="_blank">
+        <img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6&cb=1.0" height="45" alt="Buy Me a Coffee" loading="lazy">
       </a>
     </div>
 
     <div class="divider"></div>
 
     <div class="btn">
-      <a href="https://www.paypal.com/paypalme/vishalsoniindia" target="_blank">
-        <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png?v=6" height="36" alt="PayPal" loading="lazy">
+      <a href="https://www.paypal.com/paypalme/vishalsoniindia?cb=1.0" target="_blank">
+        <img src="https://www.paypalobjects.com/webstatic/en_AU/i/buttons/btn_paywith_primary_l.png?v=6&cb=1.0" height="36" alt="PayPal" loading="lazy">
       </a>
     </div>
 
@@ -226,18 +230,18 @@
 
     <div class="upi-section">
       <div class="upi-header">
-        <img src="https://github.com/user-attachments/assets/3d025bee-2d79-4ccd-a36c-ee90618eac69" alt="UPI Logo" loading="lazy">
+        <img src="https://github.com/user-attachments/assets/3d025bee-2d79-4ccd-a36c-ee90618eac69?cb=1.0" alt="UPI Logo" loading="lazy">
         <div class="upi-box">
           <span id="upi-id">vishalsoniindia@ybl</span>
           <button class="copy-btn" onclick="copyUPI()">Copy</button>
         </div>
       </div>
       <!-- QR Code -->
-      <img class="qr" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" alt="UPI QR Code" loading="lazy">
+      <img class="qr" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd?cb=1.0" alt="UPI QR Code" loading="lazy">
 
       <!-- PhonePe Button (now clearly below QR code) -->
       <div>
-        <a class="phonepe-btn" href="upi://pay?pa=vishalsoniindia@ybl&pn=Vishal%20Soni" target="_blank">
+        <a class="phonepe-btn" href="upi://pay?pa=vishalsoniindia@ybl&pn=Vishal%20Soni&cb=1.0" target="_blank">
           Pay with PhonePe 📲
         </a>
       </div>
@@ -253,6 +257,9 @@
   <div id="toast">UPI ID copied!</div>
 
   <script>
+    // Cache-busting version parameter
+    const CACHE_VERSION = '1.0';
+    
     function copyUPI() {
       const upiId = document.getElementById("upi-id").innerText;
       navigator.clipboard.writeText(upiId).then(() => {
@@ -261,6 +268,27 @@
         setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
       });
     }
+    
+    // Add cache-busting parameter to all external resources
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('a[href*="github.io"], a[href*="ko-fi.com"], a[href*="paypal.com"]');
+      links.forEach(link => {
+        if (link.href.indexOf('?') === -1) {
+          link.href += '?cb=' + CACHE_VERSION;
+        } else {
+          link.href += '&cb=' + CACHE_VERSION;
+        }
+      });
+      
+      const images = document.querySelectorAll('img[src*="github.com"], img[src*="ko-fi.com"], img[src*="paypal.com"]');
+      images.forEach(img => {
+        if (img.src.indexOf('?') === -1) {
+          img.src += '?cb=' + CACHE_VERSION;
+        } else {
+          img.src += '&cb=' + CACHE_VERSION;
+        }
+      });
+    });
   </script>
 </body>
 </html>
