@@ -1,6 +1,6 @@
 <h1>☕ Support My Work</h1>
 
-[![Youtube ](https://img.shields.io/badge/@GlitchTronics-YouTube-red)](https://vishalsoniindia.github.io/redirect-links/youtube-link.html)    [![Instagram ](https://img.shields.io/badge/@GlitchTronics-Instragram-8a3ab9)](https://vishalsoniindia.github.io/redirect-links/instagram-link.html)    
+[![Youtube ](https://img.shields.io/badge/@ElectroDonut-YouTube-red)](https://vishalsoniindia.github.io/redirect-links/youtube-link.html)    [![Instagram ](https://img.shields.io/badge/@ElectroDonut-Instragram-8a3ab9)](https://vishalsoniindia.github.io/redirect-links/instagram-link.html)    
 
 <p>
     Hi there! 👋 I'm a maker from India 🇮🇳, passionate about creating and sharing innovative projects.  
