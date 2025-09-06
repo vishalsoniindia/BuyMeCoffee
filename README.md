@@ -16,8 +16,9 @@
 <a href='https://www.paypal.com/paypalme/vishalsoniindia' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-large.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a><br/>
 
 ---
-
-[![Copy UPI ID](https://img.shields.io/badge/Copy%20UPI%20ID-25D366?style=for-the-badge&logo=google-pay&logoColor=white)](upi://pay?pa=your-upi-id@upi&pn=YourName&cu=INR)
+```
+vishalsoniindia@ybl
+```
 
 <img height="300" alt="upi" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" />
 
