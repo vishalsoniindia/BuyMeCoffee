@@ -16,6 +16,8 @@
 <a href='https://www.paypal.com/paypalme/vishalsoniindia' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-large.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a><br/>
 
 ---
+<img width="220" height="81" alt="upi-logo" src="https://github.com/user-attachments/assets/f858a26e-1986-4c22-b0bb-03628dd62a69" />
+
 ```
 vishalsoniindia@ybl
 ```
