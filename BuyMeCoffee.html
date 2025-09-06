@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>☕ Support My Work</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    p {
+      text-align: center;
+      font-size: 1.1em;
+    }
+    .social {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .social a img {
+      margin: 0 5px;
+    }
+    .divider {
+      border-top: 1px solid #444;
+      margin: 25px 0;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      margin: 15px auto;
+    }
+    .btn img {
+      border: none;
+      cursor: pointer;
+    }
+    .upi-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    .upi-header img {
+      height: 60px;
+    }
+    .upi-box {
+      display: flex;
+      align-items: center;
+      background: #2a2a2a;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 1.1em;
+      gap: 10px;
+    }
+    .copy-btn {
+      background: #444;
+      border: none;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background 0.3s;
+    }
+    .copy-btn:hover {
+      background: #666;
+    }
+    .upi-section {
+      text-align: center;
+    }
+    .upi-section img.qr {
+      margin-top: 15px;
+      height: 250px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>☕ Support My Work</h1>
+
+    <div class="social">
+      <a href="https://vishalsoniindia.github.io/redirect-links/youtube-link.html" target="_blank">
+        <img src="https://img.shields.io/badge/@ElectroDonut-YouTube-red" alt="YouTube">
+      </a>
+      <a href="https://vishalsoniindia.github.io/redirect-links/instagram-link.html" target="_blank">
+        <img src="https://img.shields.io/badge/@ElectroDonut-Instragram-8a3ab9" alt="Instagram">
+      </a>
+    </div>
+
+    <p>
+      Hi there! 👋 I'm a maker from India 🇮🇳, passionate about creating and sharing innovative projects.  
+      If you enjoy my work, consider supporting me by donating. Your generosity helps fuel my projects and keeps me going!
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Buy Me a Coffee -->
+    <div class="btn">
+      <a href="https://ko-fi.com/N4N21536PR" target="_blank">
+        <img src="https://storage.ko-fi.com/cdn/kofi6.png?v=6" height="45" alt="Buy Me a Coffee">
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- PayPal -->
+    <div class="btn">
+      <a href="https://www.paypal.com/paypalme/vishalsoniindia" target="_blank">
+        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/buy-logo-large.png?v=6" height="36" alt="PayPal">
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- UPI -->
+    <div class="upi-section">
+      <div class="upi-header">
+        <img src="https://github.com/user-attachments/assets/3d025bee-2d79-4ccd-a36c-ee90618eac69" alt="UPI Logo">
+        <div class="upi-box">
+          <span id="upi-id">vishalsoniindia@ybl</span>
+          <button class="copy-btn" onclick="copyUPI()">Copy</button>
+        </div>
+      </div>
+      <img class="qr" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" alt="UPI QR Code">
+    </div>
+
+    <div class="divider"></div>
+
+    <footer>
+      ❤️ Thank you for your support! 🙏
+    </footer>
+  </div>
+
+  <script>
+    function copyUPI() {
+      const upiId = document.getElementById("upi-id").innerText;
+      navigator.clipboard.writeText(upiId).then(() => {
+        alert("UPI ID copied: " + upiId);
+      });
+    }
+  </script>
+</body>
+</html>
