@@ -17,7 +17,7 @@
 
 ---
 
-<img width="890" height="975" alt="upi" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" />
+<img height="200" alt="upi" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd" />
 
 ---
 
