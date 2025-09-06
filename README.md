@@ -9,7 +9,7 @@
 
 ---
 
-<a href='https://ko-fi.com/N4N21536PR' target='_blank'><img height='36' style='border:0px;height:40px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a><br/>
+<a href='https://ko-fi.com/N4N21536PR' target='_blank'><img height='36' style='border:0px;height:45px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a><br/>
 
 ---
 
