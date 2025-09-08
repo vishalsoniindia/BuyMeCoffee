@@ -3,8 +3,7 @@
 [![Youtube ](https://img.shields.io/badge/@ElectroDonut-YouTube-red)](https://vishalsoniindia.github.io/redirect-links/youtube-link.html)    [![Instagram ](https://img.shields.io/badge/@ElectroDonut-Instragram-8a3ab9)](https://vishalsoniindia.github.io/redirect-links/instagram-link.html)    
 
 <p>
-    Hi there! 👋 I'm a maker from India 🇮🇳, passionate about creating and sharing innovative projects.  
-    If you enjoy my work, consider supporting me by donating. Your generosity helps fuel my projects and keeps me going!
+    Hi there! Helps fuel my projects and keeps me going!
 </p>
 
 ---
