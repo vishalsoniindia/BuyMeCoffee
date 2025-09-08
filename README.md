@@ -26,6 +26,15 @@ vishalsoniindia@ybl
 
 ---
 
+
+<img width="512" height="512" alt="upi-payment-icon" src="https://github.com/user-attachments/assets/47558b4f-c640-41d8-ad61-448bd17623fe" />
+<img width="512" height="512" alt="phonepe-icon" src="https://github.com/user-attachments/assets/bb3d9d7c-8f69-4589-a90d-d5c421242533" />
+<img width="512" height="512" alt="paytm-icon" src="https://github.com/user-attachments/assets/55fc8568-3185-4867-9e3f-e25c0841af30" />
+<img width="512" height="512" alt="google-pay-icon" src="https://github.com/user-attachments/assets/55c8b0ef-b128-4618-8bfb-ca334255b421" />
+<img width="512" height="512" alt="bhim-app-icon" src="https://github.com/user-attachments/assets/34f676ab-f860-4530-9017-3c333cbad5d8" />
+<img width="512" height="512" alt="amazon-pay-icon" src="https://github.com/user-attachments/assets/f52a1820-feb3-43e9-8ba6-4c03016d8ada" />
+
+
 <p>
 ❤️Thank you for your support! 🙏
 </p>
