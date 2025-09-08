@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap&v=1.0" rel="stylesheet">
   
   <style>
+    /* Your existing CSS remains unchanged */
     body {
       font-family: 'Poppins', system-ui, sans-serif;
       background: linear-gradient(135deg, #1e1e2f, #121212);
@@ -126,6 +127,23 @@
       margin-right: auto;
     }
 
+    /* PhonePe Button */
+    .phonepe-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #5f259f;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .phonepe-btn:hover {
+      background: #7b3fc2;
+      transform: translateY(-2px);
+    }
+
     /* UPI App Selector */
     .upi-selector {
       margin-top: 20px;
@@ -149,6 +167,23 @@
       background: #4a4a4a;
       transform: translateY(-2px);
     }
+    .app-options {
+      display: none;
+      margin-top: 15px;
+      animation: fadeIn 0.3s ease;
+    }
+    .app-option {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 15px;
+      background: #333;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .app-option:hover {
+      background: #444;
+    }
 
     /* Modal */
     .modal {
@@ -168,15 +203,14 @@
       background: #2a2a2a;
       padding: 25px;
       border-radius: 12px;
-      max-width: 500px;
-      width: 90%;
+      max-width: 400px;
+      width: 80%;
       text-align: center;
     }
     .close-modal {
       float: right;
       cursor: pointer;
       font-size: 1.5em;
-      color: #fff;
     }
     .app-list {
       margin-top: 20px;
@@ -189,13 +223,13 @@
       flex-direction: column;
       align-items: center;
       padding: 15px;
-      background: #f5f5f5;
+      background: #3a3a3a;
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
     .app-item:hover {
-      background: #e8e8e8;
+      background: #4a4a4a;
       transform: translateY(-5px);
     }
     .app-logo {
@@ -207,9 +241,8 @@
     }
     .app-name {
       font-size: 0.9em;
-      color: #333;
+      color: #ddd;
       margin-top: 5px;
-      font-weight: 600;
     }
 
     footer {
@@ -266,21 +299,10 @@
     /* Responsive adjustments */
     @media (max-width: 480px) {
       .app-list {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
       .card {
         padding: 25px 20px;
-      }
-      .modal-content {
-        width: 95%;
-        padding: 20px 15px;
-      }
-      .app-item {
-        padding: 12px;
-      }
-      .app-logo {
-        width: 50px;
-        height: 50px;
       }
     }
   </style>
@@ -300,7 +322,7 @@
 
     <p>
       Hi there! 👋 I'm a maker from India 🇮🇳, passionate about creating and sharing innovative projects.  
-      If you enjoy my work, consider supporting me with a donation. Your generosity helps fuel my projects and keeps me going!
+      If you enjoy my work, consider supporting me by donating. Your generosity helps fuel my projects and keeps me going!
     </p>
 
     <div class="divider"></div>
@@ -329,7 +351,6 @@
           <button class="copy-btn" onclick="copyUPI()">Copy</button>
         </div>
       </div>
-      
       <!-- QR Code -->
       <img class="qr" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd?cb=1.0" alt="UPI QR Code" loading="lazy">
 
@@ -365,11 +386,13 @@
     // Cache-busting version parameter
     const CACHE_VERSION = '1.0';
     
-    // UPI payment parameters with cb=1.0 instead of amount
+    // UPI payment parameters
     const upiParams = {
       pa: 'vishalsoniindia@ybl',
       pn: 'Vishal Soni',
-      cb: '1.0'
+      am: '1.0',
+      cu: 'INR',
+      tn: 'Support donation'
     };
     
     // UPI app URL schemes with logos
@@ -412,9 +435,6 @@
       }
     ];
     
-    // Track if we've been redirected
-    let redirected = false;
-    
     function copyUPI() {
       const upiId = document.getElementById("upi-id").innerText;
       navigator.clipboard.writeText(upiId).then(() => {
@@ -435,7 +455,7 @@
       let url = `${app.scheme}?`;
       const params = new URLSearchParams();
       
-      // Add all UPI parameters including the cb parameter
+      // Add all UPI parameters
       Object.keys(upiParams).forEach(key => {
         if (upiParams[key]) {
           params.append(key, upiParams[key]);
@@ -448,20 +468,46 @@
     function openUpiApp(app) {
       const url = buildUpiUrl(app);
       
-      // Reset the redirect flag
-      redirected = false;
-      
       // Try to open the app
       window.location.href = url;
-      redirected = true;
       
       // Set a timeout to check if the app opened
       setTimeout(function() {
-        // If still on page after 3 seconds, show error message
-        if (!redirected) {
-          showToast("Something went wrong with this app. Please try another option.");
+        // If still on page, app might not be installed
+        if (!document.hidden) {
+          if (app.name === 'Any UPI App') {
+            showToast("No UPI app found. Please install one.");
+          } else {
+            showToast(`${app.name} not installed. Trying generic UPI link...`);
+            // Fallback to generic UPI
+            window.location.href = buildUpiUrl(upiApps[0]);
+            
+            // Second fallback - redirect to app store
+            setTimeout(function() {
+              if (!document.hidden && app.package) {
+                if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                  window.location.href = `itms-apps://itunes.apple.com/app/id${getIosAppId(app.name)}`;
+                } else {
+                  window.location.href = `market://details?id=${app.package}`;
+                }
+              }
+            }, 500);
+          }
         }
-      }, 3000);
+      }, 500);
+    }
+    
+    function getIosAppId(appName) {
+      // iOS app IDs for redirecting to App Store
+      const iosAppIds = {
+        'Google Pay': '1193357041',
+        'PhonePe': '1170059581',
+        'Paytm': '473941634',
+        'BHIM': '1123928492',
+        'Amazon Pay': '1025125212'
+      };
+      
+      return iosAppIds[appName] || '';
     }
     
     function showAppSelector() {
