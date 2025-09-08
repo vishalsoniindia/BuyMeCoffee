@@ -189,7 +189,7 @@
       flex-direction: column;
       align-items: center;
       padding: 15px;
-      background: #f5f5f5; /* Light off-white background */
+      background: #f5f5f5;
       border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -207,7 +207,7 @@
     }
     .app-name {
       font-size: 0.9em;
-      color: #333; /* Dark text for better contrast on light background */
+      color: #333;
       margin-top: 5px;
       font-weight: 600;
     }
@@ -266,7 +266,7 @@
     /* Responsive adjustments */
     @media (max-width: 480px) {
       .app-list {
-        grid-template-columns: repeat(2, 1fr); /* Two icons per row on mobile */
+        grid-template-columns: repeat(2, 1fr);
       }
       .card {
         padding: 25px 20px;
@@ -300,7 +300,7 @@
 
     <p>
       Hi there! 👋 I'm a maker from India 🇮🇳, passionate about creating and sharing innovative projects.  
-      If you enjoy my work, consider supporting me with a donation of ₹100. Your generosity helps fuel my projects and keeps me going!
+      If you enjoy my work, consider supporting me with a donation. Your generosity helps fuel my projects and keeps me going!
     </p>
 
     <div class="divider"></div>
@@ -365,11 +365,11 @@
     // Cache-busting version parameter
     const CACHE_VERSION = '1.0';
     
-    // UPI payment parameters with fixed amount of 100
+    // UPI payment parameters with cb=1.0 instead of amount
     const upiParams = {
       pa: 'vishalsoniindia@ybl',
       pn: 'Vishal Soni',
-      cb=1.0
+      cb: '1.0'
     };
     
     // UPI app URL schemes with logos
@@ -432,7 +432,7 @@
       let url = `${app.scheme}?`;
       const params = new URLSearchParams();
       
-      // Add all UPI parameters including the fixed amount
+      // Add all UPI parameters including the cb parameter
       Object.keys(upiParams).forEach(key => {
         if (upiParams[key]) {
           params.append(key, upiParams[key]);
