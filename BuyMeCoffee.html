@@ -126,92 +126,6 @@
       margin-right: auto;
     }
 
-    /* UPI App Selector */
-    .upi-selector {
-      margin-top: 20px;
-    }
-    .upi-selector-btn {
-      display: block;
-      width: 100%;
-      background: #3a3a3a;
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s, transform 0.2s;
-      margin-bottom: 10px;
-      border: none;
-      cursor: pointer;
-      text-align: center;
-    }
-    .upi-selector-btn:hover {
-      background: #4a4a4a;
-      transform: translateY(-2px);
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 100;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.3s ease;
-    }
-    .modal-content {
-      background: #2a2a2a;
-      padding: 25px;
-      border-radius: 12px;
-      max-width: 500px;
-      width: 90%;
-      text-align: center;
-    }
-    .close-modal {
-      float: right;
-      cursor: pointer;
-      font-size: 1.5em;
-      color: #fff;
-    }
-    .app-list {
-      margin-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-    }
-    .app-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 15px;
-      background: #f5f5f5;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .app-item:hover {
-      background: #e8e8e8;
-      transform: translateY(-5px);
-    }
-    .app-logo {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 10px;
-      border-radius: 12px;
-    }
-    .app-name {
-      font-size: 0.9em;
-      color: #333;
-      margin-top: 5px;
-      font-weight: 600;
-    }
-
     footer {
       margin-top: 25px;
       font-size: 1.1em;
@@ -258,29 +172,11 @@
       from { opacity: 0; bottom: 20px; }
       to { opacity: 1; bottom: 50px; }
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
 
     /* Responsive adjustments */
     @media (max-width: 480px) {
-      .app-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
       .card {
         padding: 25px 20px;
-      }
-      .modal-content {
-        width: 95%;
-        padding: 20px 15px;
-      }
-      .app-item {
-        padding: 12px;
-      }
-      .app-logo {
-        width: 50px;
-        height: 50px;
       }
     }
   </style>
@@ -332,13 +228,6 @@
       
       <!-- QR Code -->
       <img class="qr" src="https://github.com/user-attachments/assets/6709c811-bf32-46b3-8126-d590d468dadd?cb=1.0" alt="UPI QR Code" loading="lazy">
-
-      <!-- UPI App Selector -->
-      <div class="upi-selector">
-        <button class="upi-selector-btn" onclick="showAppSelector()">
-          Pay with UPI App 📲
-        </button>
-      </div>
     </div>
 
     <div class="divider"></div>
@@ -348,72 +237,11 @@
     </footer>
   </div>
 
-  <!-- UPI App Selection Modal -->
-  <div class="modal" id="upiModal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <h3>Choose your UPI App</h3>
-      <div class="app-list" id="appList">
-        <!-- App list will be populated by JavaScript -->
-      </div>
-    </div>
-  </div>
-
   <div id="toast">UPI ID copied!</div>
 
   <script>
     // Cache-busting version parameter
     const CACHE_VERSION = '1.0';
-    
-    // UPI payment parameters with cb=1.0 instead of amount
-    const upiParams = {
-      pa: 'vishalsoniindia@ybl',
-      pn: 'Vishal Soni',
-      cb: '1.0'
-    };
-    
-    // UPI app URL schemes with logos
-    const upiApps = [
-      { 
-        name: 'Any UPI App', 
-        scheme: 'upi://pay', 
-        package: '',
-        logo: 'https://github.com/user-attachments/assets/47558b4f-c640-41d8-ad61-448bd17623fe'
-      },
-      { 
-        name: 'Google Pay', 
-        scheme: 'tez://upi/pay', 
-        package: 'com.google.android.apps.nbu.paisa.user',
-        logo: 'https://github.com/user-attachments/assets/55c8b0ef-b128-4618-8bfb-ca334255b421'
-      },
-      { 
-        name: 'PhonePe', 
-        scheme: 'phonepe://pay', 
-        package: 'com.phonepe.app',
-        logo: 'https://github.com/user-attachments/assets/bb3d9d7c-8f69-4589-a90d-d5c421242533'
-      },
-      { 
-        name: 'Paytm', 
-        scheme: 'paytmmp://pay', 
-        package: 'net.one97.paytm',
-        logo: 'https://github.com/user-attachments/assets/55fc8568-3185-4867-9e3f-e25c0841af30'
-      },
-      { 
-        name: 'BHIM', 
-        scheme: 'bhim://pay', 
-        package: 'in.org.npci.upiapp',
-        logo: 'https://github.com/user-attachments/assets/34f676ab-f860-4530-9017-3c333cbad5d8'
-      },
-      { 
-        name: 'Amazon Pay', 
-        scheme: 'amazonpay://pay', 
-        package: 'in.amazon.mShop.android.shopping',
-        logo: 'https://github.com/user-attachments/assets/f52a1820-feb3-43e9-8ba6-4c03016d8ada'
-      }
-    ];
-    
-    // Track if we've been redirected
-    let redirected = false;
     
     function copyUPI() {
       const upiId = document.getElementById("upi-id").innerText;
@@ -430,77 +258,6 @@
         toast.className = toast.className.replace("show", ""); 
       }, 2500);
     }
-    
-    function buildUpiUrl(app) {
-      let url = `${app.scheme}?`;
-      const params = new URLSearchParams();
-      
-      // Add all UPI parameters including the cb parameter
-      Object.keys(upiParams).forEach(key => {
-        if (upiParams[key]) {
-          params.append(key, upiParams[key]);
-        }
-      });
-      
-      return url + params.toString();
-    }
-    
-    function openUpiApp(app) {
-      const url = buildUpiUrl(app);
-      
-      // Reset the redirect flag
-      redirected = false;
-      
-      // Try to open the app
-      window.location.href = url;
-      redirected = true;
-      
-      // Set a timeout to check if the app opened
-      setTimeout(function() {
-        // If still on page after 3 seconds, show error message
-        if (!redirected) {
-          showToast("Something went wrong with this app. Please try another option.");
-        }
-      }, 3000);
-    }
-    
-    function showAppSelector() {
-      const modal = document.getElementById('upiModal');
-      const appList = document.getElementById('appList');
-      
-      // Clear previous list
-      appList.innerHTML = '';
-      
-      // Populate app list with logos
-      upiApps.forEach(app => {
-        const appItem = document.createElement('div');
-        appItem.className = 'app-item';
-        appItem.innerHTML = `
-          <img src="${app.logo}" alt="${app.name}" class="app-logo" onerror="this.src='https://via.placeholder.com/60/3a3a3a/ffffff?text=🌐'">
-          <span class="app-name">${app.name}</span>
-        `;
-        appItem.onclick = () => {
-          closeModal();
-          openUpiApp(app);
-        };
-        appList.appendChild(appItem);
-      });
-      
-      // Show modal
-      modal.style.display = 'flex';
-    }
-    
-    function closeModal() {
-      document.getElementById('upiModal').style.display = 'none';
-    }
-    
-    // Close modal if clicked outside
-    window.onclick = function(event) {
-      const modal = document.getElementById('upiModal');
-      if (event.target === modal) {
-        closeModal();
-      }
-    };
     
     // Add cache-busting parameter to all external resources
     document.addEventListener('DOMContentLoaded', function() {
